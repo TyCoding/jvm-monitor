@@ -27,7 +27,7 @@ public class RouterController {
      */
     @GetMapping("/overview")
     public String overview() {
-        return "/jvm/overview";
+        return "jvm/overview";
     }
 
     /**
@@ -37,7 +37,7 @@ public class RouterController {
      */
     @GetMapping("/class")
     public String monitor() {
-        return "/jvm/class";
+        return "jvm/class";
     }
 
     /**
@@ -47,7 +47,7 @@ public class RouterController {
      */
     @GetMapping("/memory")
     public String gc() {
-        return "/jvm/memory";
+        return "jvm/memory";
     }
 
     /**
@@ -57,6 +57,6 @@ public class RouterController {
      */
     @GetMapping("/thread")
     public String thread() {
-        return "/jvm/thread";
+        return "jvm/thread";
     }
 }
