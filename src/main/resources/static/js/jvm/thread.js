@@ -129,6 +129,7 @@ Highcharts.setOptions({
             color: "#808080"
         }]
     },
+    global: { useUTC: false },
     legend: {
         enabled: false
     },

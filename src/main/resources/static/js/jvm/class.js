@@ -49,16 +49,16 @@ let app = new Vue({
                         },
                         series: [{
                             name: "JVM 加载类总数量",
-                            data: function () {
-                                var data = [], time = new Date().getTime(), i;
-                                for (i = -19; i <= 0; i++) {
+                            data: (function () {
+                                var data = [], time = (new Date()).getTime(), i;
+                                for (i = -19; i <= 0; i += 1) {
                                     data.push({
-                                        x: time + i * 1e3,
-                                        y: Math.random() * (1e3 - 800) + 800
+                                        x: time + i * 1000,
+                                        y: Math.random()
                                     });
                                 }
                                 return data;
-                            }()
+                            }())
                         }]
                     });
                     Highcharts.chart('class-unLoaded', {
@@ -165,6 +165,7 @@ Highcharts.setOptions({
             color: "#808080"
         }]
     },
+    global: { useUTC: false },
     legend: {
         enabled: false
     },

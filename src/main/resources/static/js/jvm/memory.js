@@ -324,6 +324,7 @@ Highcharts.setOptions({
         type: 'datetime',
         tickPixelInterval: 150
     },
+    global: { useUTC: false },
     yAxis: {
         title: {
             text: "单位/Mb"
