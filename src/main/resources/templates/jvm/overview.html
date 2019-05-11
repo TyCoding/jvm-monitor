@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>JVM | 概述</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <div th:replace="common/css"></div>
+</head>
+<body>
+<!-- vue入口 -->
+<div id="app">
+    <!-- aside -->
+    <div th:replace="common/side"></div>
+
+    <!-- container -->
+    <el-container class="main-container">
+        <!-- header -->
+        <div style="background-color: rgb(84, 92, 100);" th:replace="common/header"></div>
+
+        <!-- main -->
+        <el-main class="app-main">
+            <el-card>
+                <el-divider content-position="left"><h3>JVM基础数据</h3></el-divider>
+                <ul style="line-height: 26px;">
+                    <li><b>主机：</b>{{data.host}}</li>
+                    <li><b>JVM：</b>{{data.jvm}}</li>
+                    <li><b>JDK路径：</b>{{data.home}}</li>
+                    <li><b>JVM启动时间：</b>{{dateFormat(data.startTime)}}</li>
+                    <li><b>参数：</b>
+                        <div v-for="arg in data.args">&nbsp;&nbsp;&nbsp;&nbsp;{{arg}}</div>
+                    </li>
+                </ul>
+                <br/>
+                <el-divider content-position="left"><h3>JVM详细数据</h3></el-divider>
+                <!-- 列表 -->
+                <el-table :data="data.properties" size="small" v-loading="loading" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" border fit highlight-current-row>
+                    <el-table-column prop="key" label="参数名称" width="280"></el-table-column>
+                    <el-table-column label="参数值">
+                        <template slot-scope="scope">
+                            <span v-html="strFormat(scope.row.value)"></span>
+                        </template>
+                    </el-table-column>
+                </el-table>
+                <br/>
+            </el-card>
+        </el-main>
+    </el-container>
+</div>
+<div th:replace="common/js"></div>
+<script type="text/javascript" th:src="@{/js/jvm/overview.js}"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<div class="page-loader" ref="loader">
+    <div class="page-loader__spinner">
+        <svg viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+    </div>
+</div>
+<div class="sidebar-container el-scrollbar">
+    <div class="scrollbar-wrapper el-scrollbar__wrap">
+        <div class="el-scrollbar__view" style="background-color: rgb(48, 65, 86);">
+            <el-aside style="background-color: rgb(48, 65, 86);width: auto !important;" show-timeout="200">
+                <el-menu unique-opened :default-active="defaultActive"
+                         background-color="rgb(48, 65, 86)" text-color="#fff">
+                    <a href="/">
+                        <el-menu-item index="首页">
+                            <i class="fa fa-home fa-fw"></i>
+                            <span slot="title">首页</span>
+                        </el-menu-item>
+                    </a>
+                    <a href="/doc">
+                        <el-menu-item index="项目文档">
+                            <i class="fa fa-paper-plane fa-fw"></i>
+                            <span slot="title">项目文档</span>
+                        </el-menu-item>
+                    </a>
+                    <el-submenu index="本地JVM监控">
+                        <template slot="title">
+                            <i class="fa fa-dashboard fa-fw"></i>
+                            <span>本地JVM监控</span>
+                        </template>
+                        <el-menu-item-group>
+                            <a href="/overview">
+                                <el-menu-item index="概述">概述</el-menu-item>
+                            </a>
+                        </el-menu-item-group>
+                        <el-menu-item-group>
+                            <a href="/class">
+                                <el-menu-item index="类加载监控">类加载监控</el-menu-item>
+                            </a>
+                        </el-menu-item-group>
+                        <el-menu-item-group>
+                            <a href="/memory">
+                                <el-menu-item index="内存监控">内存监控</el-menu-item>
+                            </a>
+                        </el-menu-item-group>
+                        <el-menu-item-group>
+                            <a href="/thread">
+                                <el-menu-item index="线程监控">线程监控</el-menu-item>
+                            </a>
+                        </el-menu-item-group>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+        </div>
+    </div>
+    <div class="el-scrollbar__bar is-horizontal">
+        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+    </div>
+    <div class="el-scrollbar__bar is-vertical">
+        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+    </div>
+</div>
+

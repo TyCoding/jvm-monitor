@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>后台首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <div th:replace="common/css"></div>
+</head>
+<body>
+<!-- vue入口 -->
+<div id="app">
+    <!-- aside -->
+    <div th:replace="common/side"></div>
+
+    <!-- container -->
+    <el-container class="main-container">
+        <!-- header -->
+        <div style="background-color: rgb(84, 92, 100);" th:replace="common/header"></div>
+
+        <!-- main -->
+        <el-main class="app-main">
+            <el-card>
+                <el-divider content-position="left">JVM</el-divider>
+                <el-collapse>
+                    <el-collapse-item name="1">
+                        <template slot="title">
+                            <b>os.host</b>&nbsp;&nbsp;<i class="header-icon el-icon-info"></i>
+                        </template>
+                        <div>{{data.host}}</div>
+                    </el-collapse-item>
+                    <el-collapse-item name="2">
+                        <template slot="title">
+                            <b>java.vm</b>&nbsp;&nbsp;<i class="header-icon el-icon-info"></i>
+                        </template>
+                        <div>{{data.jvm}}</div>
+                    </el-collapse-item>
+                    <el-collapse-item name="3">
+                        <template slot="title">
+                            <b>java.vm.version</b>&nbsp;&nbsp;<i class="header-icon el-icon-info"></i>
+                        </template>
+                        <div>{{data.version}}</div>
+                    </el-collapse-item>
+                    <el-collapse-item name="4">
+                        <template slot="title">
+                            <b>java.home</b>&nbsp;&nbsp;<i class="header-icon el-icon-info"></i>
+                        </template>
+                        <div>{{data.home}}</div>
+                    </el-collapse-item>
+                </el-collapse>
+                <br/>
+                <br/>
+                <el-divider content-position="left">项目信息</el-divider>
+                <div>
+                    <b>项目地址：</b> <a href="https://github.com/TyCoding/permission" target="_blank" style="color:#409EFF">https://github.com/TyCoding/permission</a>
+                    <br/>
+                    <br/>
+                    <b>博客地址：</b> <a href="https://tycoding.cn/" target="_blank" style="color:#409EFF">https://tycoding.cn/</a>
+                    <br/>
+                    <br/>
+                    <b>欢迎star,fork 给作者一些鼓励</b>
+                </div>
+                <br/>
+                <br/>
+            </el-card>
+        </el-main>
+    </el-container>
+</div>
+<div th:replace="common/js"></div>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+</body>
+</html>

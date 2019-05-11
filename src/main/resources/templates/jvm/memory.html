@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>JVM | 内存监控</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <div th:replace="common/css"></div>
+</head>
+<body>
+<div id="app">
+    <!-- aside -->
+    <div th:replace="common/side"></div>
+
+    <!-- container -->
+    <el-container class="main-container">
+        <!-- header -->
+        <div style="background-color: rgb(84, 92, 100);" th:replace="common/header"></div>
+
+        <!-- main -->
+        <el-main class="app-main">
+            <el-card>
+                <el-alert title="堆内存监控" type="success" show-icon :closable="false"></el-alert>
+                <br/>
+                <el-card>
+                    <div id="heap-commit" style="display: inline-block;width:48%;"></div>
+                    <div id="heap-used" style="display: inline-block;width:48%;"></div>
+                </el-card>
+                <br/>
+                <br/>
+                <el-alert title="非堆内存监控" type="success" show-icon :closable="false"></el-alert>
+                <br/>
+                <el-card>
+                    <div id="nonheap-commit" style="display: inline-block;width:48%;"></div>
+                    <div id="nonheap-used" style="display: inline-block;width:48%;"></div>
+                </el-card>
+                <br/>
+                <br/>
+                <el-alert title="各内存区监控" type="success" show-icon :closable="false"></el-alert>
+                <br/>
+                <el-card>
+                    <div id="pools-commit" style="width: 100%;"></div>
+                    <div id="pools-used" style="width: 100%;"></div>
+                </el-card>
+            </el-card>
+        </el-main>
+    </el-container>
+</div>
+<div th:replace="common/js"></div>
+<script data-th-src="@{/lib/highchart/highcharts.js}"></script>
+<script data-th-src="@{/lib/highchart/exporting.js}"></script>
+<script data-th-src="@{/lib/highchart/highcharts-zh_CN.js}"></script>
+<script type="text/javascript" th:src="@{/js/jvm/memory.js}"></script>
+</body>
+</html>
