@@ -41,12 +41,22 @@ public class RouterController {
     }
 
     /**
+     * GC监控页
+     *
+     * @return
+     */
+    @GetMapping("/gc")
+    public String gc() {
+        return "jvm/gc";
+    }
+
+    /**
      * 内存监控页
      *
      * @return
      */
     @GetMapping("/memory")
-    public String gc() {
+    public String memory() {
         return "jvm/memory";
     }
 

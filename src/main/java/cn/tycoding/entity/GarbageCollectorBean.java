@@ -13,4 +13,13 @@ import java.io.Serializable;
 @Data
 public class GarbageCollectorBean implements Serializable {
 
+    /**
+     * GC回收次数
+     */
+    private Long count;
+
+    /**
+     * GC回收耗时
+     */
+    private Long time;
 }

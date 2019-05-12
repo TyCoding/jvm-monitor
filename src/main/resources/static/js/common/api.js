@@ -17,6 +17,7 @@ let api = {
             get: '/thread/get'
         },
         gc: {
+            get: '/gc/get',
             getPools: '/gc/getPools'
         }
     }

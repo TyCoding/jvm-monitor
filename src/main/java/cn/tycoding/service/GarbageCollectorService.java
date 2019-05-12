@@ -1,5 +1,6 @@
 package cn.tycoding.service;
 
+import cn.tycoding.entity.GarbageCollectorBean;
 import cn.tycoding.entity.MemoryPoolBean;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface GarbageCollectorService {
 
-    Object get();
+    GarbageCollectorBean get();
 
     List<MemoryPoolBean> getPools();
 }

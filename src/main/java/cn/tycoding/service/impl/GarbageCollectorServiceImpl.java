@@ -1,9 +1,11 @@
 package cn.tycoding.service.impl;
 
+import cn.tycoding.entity.GarbageCollectorBean;
 import cn.tycoding.entity.MemoryPoolBean;
 import cn.tycoding.service.GarbageCollectorService;
 import org.springframework.stereotype.Service;
 
+import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;
 import java.util.ArrayList;
@@ -18,9 +20,14 @@ import java.util.List;
 public class GarbageCollectorServiceImpl implements GarbageCollectorService {
 
     @Override
-    public Object get() {
-        List<MemoryPoolMXBean> memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
-        return ManagementFactory.getGarbageCollectorMXBeans();
+    public GarbageCollectorBean get() {
+        GarbageCollectorBean gcBean = new GarbageCollectorBean();
+        List<GarbageCollectorMXBean> garbageCollectorMXBeans = ManagementFactory.getGarbageCollectorMXBeans();
+        garbageCollectorMXBeans.forEach(bean -> {
+            gcBean.setCount(bean.getCollectionCount());
+            gcBean.setTime(bean.getCollectionTime());
+        });
+        return gcBean;
     }
 
     @Override
